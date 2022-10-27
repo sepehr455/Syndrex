@@ -1,3 +1,5 @@
+import {Routes, Route, useNavigate} from 'react-router-dom';
+
 const buttons = [
     "button_one",
     "button_two",
@@ -9,7 +11,7 @@ const buttons = [
 const GradientButton = () =>{
     return (
         <div>
-            {buttons.map((s) => <button className ="btn-grad" value={s} key={s}/>)}
+            {buttons.map((s) => <button className ="btn-grad">{s}</button>)}
         </div>
     );
 }
