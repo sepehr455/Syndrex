@@ -7,9 +7,6 @@ import {Timer} from "./Pages/Timer";
 function App() {
     return (
         <Router>
-            <div>
-                <Link to = "/timer">timer </Link>
-            </div>
             <Routes>
                 <Route path = "/" element={<HomeScreen/>} />
                 <Route path= "/timer" element={<Timer />}/>
