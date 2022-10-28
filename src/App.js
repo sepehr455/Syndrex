@@ -1,13 +1,15 @@
-import GradientButton from "./GradientButton";
 import './Styles/App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
+import {BrowserRouter as Router, Routes, Route, Link} from 'react-router-dom'
 import HomeScreen from "./Pages/Home";
 import {Timer} from "./Pages/Timer";
 
 function App() {
     return (
         <Router>
+            <div>
+                <Link to = "/timer">timer </Link>
+            </div>
             <Routes>
                 <Route path = "/" element={<HomeScreen/>} />
                 <Route path= "/timer" element={<Timer />}/>

@@ -1,8 +1,8 @@
-import GradientButton from "../GradientButton";
+import GradientButton from "../Components/GradientButton";
 
 export default function HomeScreen(){
     return (
-        <div>
+        <div className="App-header">
             <GradientButton/>
         </div>
     )
