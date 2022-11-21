@@ -47,14 +47,6 @@
   text-decoration: none;
 }
 
-.timer__button--start{
-  background: #00b84c;
-}
-
-.timer__button--stop{
-  background: #ff025c;
-}
-
 
 @keyframes App-logo-spin {
   from {
@@ -63,4 +55,18 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.timer__buttons{
+  background-image: linear-gradient(to right, #fc00ff 0%, #00dbde  51%, #fc00ff  100%);
+  margin: 100px;
+  padding: 15px 45px;
+  text-align: center;
+  text-transform: uppercase;
+  height: 100px;
+  width: 250px;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+  border-radius: 10px;
 }
