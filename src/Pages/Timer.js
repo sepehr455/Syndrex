@@ -1,7 +1,4 @@
 import React, {useState, useEffect, useRef} from 'react'
-import GradientButton from "../Components/GradientButton";
-import {Button} from "react-bootstrap";
-
 
 const STATUS = {
     STARTED: 'Started',
@@ -56,7 +53,14 @@ export default function Timer() {
             <button onClick={handleReset} type="button" className="timer__buttons">
                 Reset
             </button>
+            <div className= "bottom_div">
+                <button onClick={handleReset} type="button" className="choose_timer">
+                    Change time
+                </button>
+            </div>
+
         </div>
+
     )
 }
 
