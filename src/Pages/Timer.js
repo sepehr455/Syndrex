@@ -41,9 +41,9 @@ export default function Timer() {
         // passing null stops the interval
     )
     return (
-        <div className="App">
+        <div className="timer_div">
 
-            <div style={{padding: 20}}>
+            <div className= "timer_nums">
                 {twoDigits(hoursToDisplay)}:{twoDigits(minutesToDisplay)}:
                 {twoDigits(secondsToDisplay)}
             </div>
