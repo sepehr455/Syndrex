@@ -1,6 +1,11 @@
 import {useEffect, useRef, useState} from "react";
+import React from "react";
+import {queries} from "@testing-library/react";
 
 const Timer = () => {
+
+    //a hook that will be used to pause the timer
+    const [status, setStatus] = React.useState("working");
 
     // We need ref in this, because we are dealing
     // with JS setInterval to keep track of it and
@@ -23,7 +28,7 @@ const Timer = () => {
 
 
     const startTimer = (e) => {
-        let { total, hours, minutes, seconds }
+        let {total, hours, minutes, seconds}
             = getTimeRemaining(e);
         if (total >= 0) {
 
@@ -35,26 +40,16 @@ const Timer = () => {
                 + (seconds > 9 ? seconds : '0' + seconds)
             )
         }
+
     }
-
-    const stopTimer = () => {
-        clearInterval(setTimer('00:00:00'))
-
-        if (!!document.querySelector('#counter')){
-            document.querySelector('#counter').remove()
-        }
-        document.querySelector('.stop-button').setAttribute("disabled", "true")
-        document.querySelector('.start-button').removeAttribute("disabled")
-        document.querySelector('.pause-button').remove()
-    }
-
 
     const clearTimer = (e) => {
 
-        //also edit line 60 if you change this
+        //also edit line 61 if you change this
         setTimer('00:01:10');
 
         if (Ref.current) clearInterval(Ref.current);
+
         Ref.current = setInterval(() => {
             startTimer(e);
         }, 1000);
@@ -72,8 +67,22 @@ const Timer = () => {
     // We put empty array to act as componentDid
     // mount only
     useEffect(() => {
-        clearTimer(getDeadTime());
-    }, []);
+        if(status === 'working'){
+            clearTimer(getDeadTime());
+        } else {
+            clearTimeout(Ref.current);
+        }
+
+    }, [status]);
+
+    const stopTimer = () => {
+        setStatus("paused");
+    }
+
+    const resume = () => {
+        setStatus("working");
+    }
+
 
     // Another way to call the clearTimer() to start
     // the countdown is via action event from the
@@ -85,10 +94,10 @@ const Timer = () => {
 
     return (
         <div className="App">
-            <h2>{timer}</h2>
+            <h2 id="counter">{timer}</h2>
             <button onClick={onClickReset}>Reset</button>
-            <button >Start</button>
-            <button  className="stop-button" onClick={stopTimer}>Stop</button>
+            <button>Start</button>
+            <button onClick={stopTimer}>Stop</button>
 
         </div>
     )
