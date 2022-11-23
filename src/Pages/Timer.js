@@ -1,4 +1,5 @@
 import React, {useState, useEffect, useRef} from 'react'
+import SessionLengthButton from "../Components/SessionLength";
 
 const STATUS = {
     STARTED: 'Started',
@@ -51,6 +52,9 @@ export default function Timer() {
             <div className= "timer_nums counter">
                 {twoDigits(hoursToDisplay)}:{twoDigits(minutesToDisplay)}:
                 {twoDigits(secondsToDisplay)}
+            </div>
+            <div>
+                <SessionLengthButton />
             </div>
             <button onClick={handleStart} type="button" className="timer__buttons start-button">
                 Start
